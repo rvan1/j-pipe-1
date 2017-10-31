@@ -1,15 +1,20 @@
 pipeline {
-  agent {
-    docker {
-      image 'https://registry.ecd.axway.int'
+    agent any 
+    stages {
+        stage('Build') { 
+            steps { 
+                echo 'build'
+            }
+        }
+        stage('Test'){
+            steps {
+                echo 'test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploy'
+            }
+        }
     }
-    
-  }
-  stages {
-    stage('install') {
-      steps {
-        sh 'echo \'do install\''
-      }
-    }
-  }
 }
